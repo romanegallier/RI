@@ -1,0 +1,55 @@
+Romane Gallier 
+Boris Odievre 
+
+
+Recherche d'information :
+
+TP1-2:
+0. Le programme extration.pl permet d'extraire tous les fichiers de cacm.all et des generer des fichiers.
+Il prend en parametre le fichier a extraire, l'emplacement ou metre les fichiers extrait et le nom a donner a ces fichiers.
+Il peut se lancer avec la commande :
+perl extraction.pl ./Sources/cacm.all ./CACM CACM
+
+1.On ecrit ensuite une fonction qui ouvre tous les fichier cree precedement et qui ppour chaque fichier ecrit le resultat dans un autre fichier portant le meme nom avec l'extansion.flt 
+Elle est dans le programme alpha.pl.
+Il prend en parametre le fichier colection, l'emplacement des fichier en entree et l'emplacement des fichier en sortie.
+Il peut se lancer avec la commande:
+perl alpha.pl ./CACM/Collection ./CACM/ ./CACM-flt/
+
+2.Calculer la fréquence d'apparition de tous les termes de la collection et les ordonner par le nombre d'apparition décroissant. Plotter le rang de ces termes n fonction de leur nombre total d'apparition. La loi de Zipf est-elle vérifiée visuellement? Quelle est dans ce cas la valeur de la constante liant le rang au nombre d'apparition, d'après cette loi?
+A FAIRE !!!!
+
+
+TP3-4:
+
+1.Écrire une fonction qui ouvre les fichiers CACM-XX.flt un à un et qui applique le stop-list common-words en enlevant tous les termes de ces fichiers qui y apparaissent. Le résultat du filtrage sera mis dans un fichier portant le même nom que ces fichiers avec une nouvelle extension .stp 
+#prend en parametre le fichier Collection , l'emplacement des fichiers d'entree, la destination des fichier de sortie, et le fichier contenant les mots commun.
+perl remove_common.pl ./CACM/Collection ./CACM-flt/ ./CACM-stp/ ./Sources/common_words
+
+2.Construction du vocabulaire:
+#prend en parametre le fichier collection, l'emplacement des fichiers .stp , le nom du fichier de destination
+
+perl construction_voc.pl ./CACM/Collection ./CACM-stp/ vocabulaire.txt
+
+
+3. calculer le df de chaque therme en mettant le df devant chaque terme:
+#prend en parametre le ficier Collection , l'emplacement des fichier .stp , le fichier de destination
+
+perl df.pl ./CACM/Collection ./CACM-stp/  df.txt
+
+4.Construction de la representation vectorielle:
+
+pour binaire :
+
+
+perl representation.pl vocabulaire.txt ./CACM-stp/ ./CACM-bin df.txt ./CACM/Collection b
+perl representation.pl vocabulaire.txt ./CACM-stp/ ./CACM-bin df.txt ./CACM/Collection f
+perl representation.pl vocabulaire.txt ./CACM-stp/ ./CACM-bin df.txt ./CACM/Collection tf
+
+TP5-6
+
+perl extraction.pl ./Sources/query.text ./QUERY QUERY
+perl alpha.pl ./QUERY/Collection ./QUERY/ ./QUERY-flt/
+perl remove_common.pl ./QUERY/Collection ./QUERY-flt/ ./QUERY-stp/ ./Sources/common_words
+
+perl representation.pl vocabulaire.txt ./QUERY-stp/ ./QUERY-bin df.txt ./QUERY/Collection b
