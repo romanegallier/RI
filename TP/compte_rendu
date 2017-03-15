@@ -48,8 +48,12 @@ perl representation.pl vocabulaire.txt ./CACM-stp/ ./CACM-bin df.txt ./CACM/Coll
 
 TP5-6
 
+1.
 perl extraction.pl ./Sources/query.text ./QUERY QUERY
 perl alpha.pl ./QUERY/Collection ./QUERY/ ./QUERY-flt/
 perl remove_common.pl ./QUERY/Collection ./QUERY-flt/ ./QUERY-stp/ ./Sources/common_words
 
 perl representation.pl vocabulaire.txt ./QUERY-stp/ ./QUERY-bin df.txt ./QUERY/Collection b
+
+2.
+

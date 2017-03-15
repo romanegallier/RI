@@ -10,7 +10,8 @@ sub creation_hash_norme ($$)
 	while(!eof(FA)){
 		chop($file=<FA>);
 		open(FO,"$path/$File.bin") || die "Erreur d'ouverture du fchier $path/$FileName\n";
-		while
+		
+	
 		while( my $str = <> ) {
   		my $weight = (split m/\s+/, $str)[-1];
 
@@ -64,3 +65,9 @@ sub toutFichier ($$$){
 }		
 
 toutFichier (@ARGV[0],@ARGV[1],@ARGV[2]);
+
+
+
+
+
+
