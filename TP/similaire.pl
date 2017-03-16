@@ -54,13 +54,27 @@ sub k_similaire($$$){
        }
 	close (F);
 	
-	foreach my $k ( sort ({ $ha{$a} <=> $ha{$b} } keys %ha)){
-	print "$k\t$ha{$k}\n";
-}
-
+	 my %pertinent= ();
+	for ($i=0;$i<$K;$i++){
+		my $max =0;
+		my $key_max;
+		foreach my $j (keys(%ha)){
+			if (%ha{$j}>$max){ 
+				$max= %ha{$j};
+				$key_max= $j;
+			}
+		}
+		$pertinent{$key_max}=$max;
+		$ha{$key_max}=0;
+	}
 	
-		
-}		
+	foreach my $k (keys(%pertinent)){
+		print " $pertinent{$k}: $k\n";
+	}
+	
+	return %pertinent;
+	
+}
 
 k_similaire (@ARGV[0],@ARGV[1],@ARGV[2]);
 
